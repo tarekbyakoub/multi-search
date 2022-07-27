@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { BsGithub } from "react-icons/bs";
 
 const HomePage = () => {
   const [stackOverflow, setStackOverflow] = useState(false);
@@ -22,22 +24,9 @@ const HomePage = () => {
   const submit = (e) => {
     e.preventDefault();
     const websites = Object.values(URLsByWebsite);
-    // console.log(websites, "list of websites");
-    // const indices = states.flatMap((s, index) => (s ? index : NaN) + 1);
-    // const filteredIndices = indices.filter(Boolean);
-    // const processedFilteredIndices = filteredIndices.join(", ");
-    // console.log("indices", indices);
-    // console.log("filtered", filteredIndices);
-    // console.log("processed", processedFilteredIndices);
-    // console.log(
-    //   "websites[processed and filtered indices]",
-    //   websites[processedFilteredIndices]
-    // );
     return states.every((s, index) =>
       s === true ? window.open(websites[index] + searchText) : []
     );
-
-    // window.open(websites[processedFilteredIndices - 1] + searchText);
   };
 
   return (
@@ -48,21 +37,21 @@ const HomePage = () => {
             style={{
               color: "white",
               fontSize: "xx-large",
-              marginBottom: "10px",
+              marginBottom: "50px",
             }}>
-            MultiSearch
+            TechSearch
           </span>
           <div className="input-wrapper">
             <input
               className="search"
-              placeholder="search"
+              placeholder="Search"
               onChange={(e) => setSearchText(e.target.value)}></input>
             <button class="input-wrapper__button" onClick={submit}>
               Search
             </button>
           </div>
           <div
-            style={{ color: "white", fontSize: "small", margin: "10px 0 0 0" }}>
+            style={{ color: "white", fontSize: "small", margin: "20px 0 0 0" }}>
             Websites to search:
           </div>
           <div class="checkbox-wrapper">
@@ -77,7 +66,7 @@ const HomePage = () => {
               type="checkbox"
               onChange={() => setMdn(!mdn)}
             />
-            <label>Mdn</label>
+            <label>MDN Web Docs</label>
             <input
               class="checkbox-wrapper__input"
               type="checkbox"
@@ -105,7 +94,22 @@ const HomePage = () => {
           </div>
         </form>
       </div>
-      <div class="footer"></div>
+      <div class="footer">
+        <div class="footer-link-wrapper">
+          <a
+            class="footer-link"
+            href="https://github.com/tarekbyakoub/multi-search"
+            target="_blank">
+            <div class="footer-link__icon">
+              <BsGithub />
+            </div>
+            <span class="footer__item">Github</span>
+          </a>
+        </div>
+        <span class="footer__item">
+          Please enable pop-ups for full functionality
+        </span>
+      </div>
     </div>
   );
 };
