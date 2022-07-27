@@ -1,4 +1,4 @@
-<h1>MultiSearch</h1>
+<h1>TechSearch</h1>
 
 Requires you to allow pop-ups!
 
